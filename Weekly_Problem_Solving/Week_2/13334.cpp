@@ -13,7 +13,10 @@ int main() {
 	sort(T1, T1 + N);
     sort(T2, T2 + N);
 	scanf("%d", &d);
-	for(int i = 0, j = 0, k = 0; i < 2 * N; i++) if(j == N || T1[j].first > T2[k].first) P[i] = T2[k++]; else P[i] = T1[j++];
+	for(int i = 0, j = 0, k = 0; i < 2 * N; i++) {
+		if(j == N || T1[j].first > T2[k].first) P[i] = T2[k++];
+		else P[i] = T1[j++];
+	}
 	for(int i = 0, k = 0; i < 2 * N; i++) {
 		while(k < 2 * N && P[k].first <= P[i].first + d) {
 			if(!visited[k]) {
